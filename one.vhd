@@ -45,19 +45,24 @@ begin
 -- 0 | 0 | 0 | 1 | 1 | 0 | 0 | 9 | 1 | 0 | 0 | 1
 -- 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0
 
-ca <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND sw2 AND not sw1 AND not sw0);
+--ca <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND sw2 AND not sw1 AND not sw0);
+ca <= (not sw0 AND sw2 AND not sw3) OR (sw0 AND not sw1 AND  not sw2 AND not sw3);
 cb <= (sw0 AND not sw1 AND sw2 AND not sw3) OR (not sw0 AND sw1 AND sw2 AND not sw3);
 cc <= (not sw3 AND not sw2 AND sw1 AND not sw0);
-cd <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND sw2 AND not sw1 AND not sw0) 
-		OR (not sw3 AND sw2 AND sw1 AND sw0) OR (sw3 AND not sw2 AND not sw1 AND sw0);
-ce <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND not sw2 AND sw1 AND sw0) 
-			OR (not sw3 AND sw2 AND not sw1 AND not sw0) OR (not sw3 AND sw2 AND not sw1 AND sw0)
-			OR (not sw3 AND sw2 AND sw1 AND sw0) OR (sw3 AND not sw2 AND not sw1 AND sw0);
-cf <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND not sw2 AND sw1 AND not sw0)
-		OR (not sw3 AND not sw2 AND sw1 AND sw0) OR (not sw3 AND sw2 AND sw1 AND sw0);
-cg <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND sw2 AND sw1 AND sw0)
-		OR (not sw3 AND not sw2 AND not sw1 AND not sw0);		
-
+--cd <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND sw2 AND not sw1 AND not sw0) 
+--		OR (not sw3 AND sw2 AND sw1 AND sw0) OR (sw3 AND not sw2 AND not sw1 AND sw0);
+cd <= (sw0 AND not sw1 AND not sw2) OR (not sw0 AND not sw1 AND sw2 AND not sw3) OR 
+		(sw0 AND sw1 AND sw2 AND not sw3);
+--ce <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND not sw2 AND sw1 AND sw0) 
+--			OR (not sw3 AND sw2 AND not sw1 AND not sw0) OR (not sw3 AND sw2 AND not sw1 AND sw0)
+--			OR (not sw3 AND sw2 AND sw1 AND sw0) OR (sw3 AND not sw2 AND not sw1 AND sw0);
+ce <= (sw0 AND not sw3) OR (not sw1 AND sw2 AND not sw3) OR (sw0 AND not sw1 AND not sw2);
+--cf <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND not sw2 AND sw1 AND not sw0)
+--		OR (not sw3 AND not sw2 AND sw1 AND sw0) OR (not sw3 AND sw2 AND sw1 AND sw0);
+cf <= (sw1 AND not sw2 AND not sw3) OR (sw0 AND not sw2 AND not sw3) OR (sw0 AND sw1 AND not sw3);
+--cg <= (not sw3 AND not sw2 AND not sw1 AND sw0) OR (not sw3 AND sw2 AND sw1 AND sw0)
+--		OR (not sw3 AND not sw2 AND not sw1 AND not sw0);		
+cg <= (not sw1 AND not sw2 AND not sw3) OR (sw0 AND sw1 AND sw2 AND not sw3);
 
 --process (sw)
 --BEGIN
